@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-
+import './index.less'
 /*
     Admin右侧顶部
  */
 class Header extends Component {
     render() {
         return (
-            <div>
-
+            <div className="header">
+                Header
             </div>
         );
     }
