@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useNavigate} from "react-router-dom";
 import {LockOutlined, UserOutlined} from '@ant-design/icons';
 import {Button, Form, Input, message} from 'antd';
 import './login.less';
 import logo from './images/logo.svg'
 import {reqLogin} from '../../api'
-
+import memoryUtils from "../../utils/memoryUtils";
+import storageUtils from "../../utils/storageUtils";
 /**
  登录的路由组件
  */
@@ -27,7 +28,6 @@ function Login() {
         //     console.log('失败!!!', error)
         // })
         const response = reqLogin(username, password)
-        // const result = response.data
         if (response.code === '100') {
             // 成功
             message.success('登录成功')
@@ -36,6 +36,9 @@ function Login() {
              *  （不需要回退，所以使用replace，否则使用push）
              */
             // this.props.history.replace('/')
+            const user = response.data
+            memoryUtils.user = user
+            storageUtils.saveUser(user) // localstorage存储
             navigate("/", {replace: true})
 
         } else {
@@ -68,6 +71,13 @@ function Login() {
         }
     }
 
+    useEffect(()=>{
+        // 如果用户已经登录，则直接跳转到Admin
+        const user = memoryUtils.user
+        if (user && user.id) {
+            navigate('/')
+        }
+    }, []);
 
     return (
         <div className="login" style={{height: document.documentElement.clientHeight}}>
