@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {useNavigate, Route, Routes} from 'react-router-dom'
+import {useNavigate, Route, Routes, Navigate, Outlet} from 'react-router-dom'
 import memoryUtils from "../../utils/memoryUtils";
 
 import Home from "../home/home";
@@ -38,16 +38,8 @@ function Admin() {
             <Layout>
                 <Header>Header</Header>
                 <Content style={{backgroundColor: '#fff'}}>
-                    <Routes>
-                        <Route path='/home' element={<Home/>}/>
-                        <Route path='/category' element={<Category/>}/>
-                        <Route path='/product' element={<Product/>}/>
-                        <Route path='/role' element={<Role/>}/>
-                        <Route path='/user' element={<User/>}/>
-                        <Route path='/charts/bar' element={<Bar/>}/>
-                        <Route path='/charts/line' element={<Line/>}/>
-                        <Route path='/charts/pie' element={<Pie/>}/>
-                    </Routes>
+                    {/* 指定路由组件的呈现位置 */}
+                    <Outlet />
                 </Content>
                 <Footer style={{textAlign: 'center', color: '#cccccc'}}>
                     推荐使用谷歌浏览器，可以获得更佳的页面操作体验

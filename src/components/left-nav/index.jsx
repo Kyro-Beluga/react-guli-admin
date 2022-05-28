@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import './index.less'
 import logo from '../../assets/images/logo.svg'
 
@@ -28,10 +28,10 @@ class LeftNav extends Component {
         return (
             <div>
                 <div className="left-nav">
-                    <Link to='/' className="left-nav-header">
+                    <NavLink to='/' className="left-nav-header">
                         <img src={logo} alt="logo"/>
                         <h1>后台管理系统</h1>
-                    </Link>
+                    </NavLink>
                 </div>
 
                 <div
@@ -44,10 +44,10 @@ class LeftNav extends Component {
                         theme="dark"
                     >
                         <Menu.Item key="1">
-                            <Link to='./home'>
+                            <NavLink to='home'>
                                 <HomeOutlined />
                                 <span>首页</span>
-                            </Link>
+                            </NavLink>
                         </Menu.Item>
 
                         <Menu.SubMenu
@@ -58,31 +58,31 @@ class LeftNav extends Component {
                                 </>
                             }>
                             <Menu.Item key="2">
-                                <Link to='./category'>
+                                <NavLink to='category'>
                                     <BarsOutlined />
                                     <span>分类</span>
-                                </Link>
+                                </NavLink>
                             </Menu.Item>
                             <Menu.Item key="3">
-                                <Link to='./product'>
+                                <NavLink to='product'>
                                     <ToolOutlined />
                                     <span>商品管理</span>
-                                </Link>
+                                </NavLink>
                             </Menu.Item>
                         </Menu.SubMenu>
 
                         <Menu.Item key="4">
-                            <Link to='./user'>
+                            <NavLink to='user'>
                                 <UserOutlined />
                                 <span>用户管理</span>
-                            </Link>
+                            </NavLink>
                         </Menu.Item>
 
                         <Menu.Item key="5">
-                            <Link to='./role'>
+                            <NavLink to='role'>
                                 <SafetyCertificateOutlined />
                                 <span>角色管理</span>
-                            </Link>
+                            </NavLink>
                         </Menu.Item>
 
                         <Menu.SubMenu
@@ -93,22 +93,22 @@ class LeftNav extends Component {
                                 </>
                             }>
                             <Menu.Item key="6">
-                                <Link to='./bar'>
+                                <NavLink to='charts/bar'>
                                     <BarChartOutlined />
                                     <span>柱形图</span>
-                                </Link>
+                                </NavLink>
                             </Menu.Item>
                             <Menu.Item key="7">
-                                <Link to='./line'>
+                                <NavLink to='charts/line'>
                                     <LineChartOutlined />
                                     <span>折线图</span>
-                                </Link>
+                                </NavLink>
                             </Menu.Item>
                             <Menu.Item key="8">
-                                <Link to='./pie'>
+                                <NavLink to='charts/pie'>
                                     <PieChartOutlined />
                                     <span>饼图</span>
-                                </Link>
+                                </NavLink>
                             </Menu.Item>
                         </Menu.SubMenu>
                     </Menu>

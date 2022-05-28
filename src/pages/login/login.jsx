@@ -15,12 +15,6 @@ function Login() {
     let formRef = React.createRef()
 
     let onFinish = (values) => {
-        console.log('Received values of form: ', values);
-
-        // const form = this.formRef.current
-        // console.log('username: ', form.getFieldValue('username'))
-        // console.log('password: ', form.getFieldValue('password'))
-
         const {username, password} = values
         // reqLogin(username, password).then(response => {
         //     console.log('成功~', response.data)
@@ -29,17 +23,14 @@ function Login() {
         // })
         const response = reqLogin(username, password)
         if (response.code === '100') {
-            // 成功
-            message.success('登录成功')
             /**
              * 跳转到管理界面：
              *  （不需要回退，所以使用replace，否则使用push）
              */
-            // this.props.history.replace('/')
             const user = response.data
             memoryUtils.user = user
             storageUtils.saveUser(user) // localstorage存储
-            navigate("/", {replace: true})
+            navigate("/home", {replace: true})
 
         } else {
             message.error('登录失败')

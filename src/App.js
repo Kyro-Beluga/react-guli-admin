@@ -1,21 +1,16 @@
 import React from "react";
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Login from './pages/login/login'
-import Admin from "./pages/admin/admin";
+import {BrowserRouter, useRoutes} from 'react-router-dom'
+import routes from './utils/router_config'
 import './App.less';
 
-
 function App() {
-  return (
-    <div className="App">
-        <BrowserRouter>
-            <Routes>
-                <Route path='/login' element={<Login/>}></Route>
-                <Route path='/' element={<Admin/>}></Route>
-            </Routes>
-        </BrowserRouter>
-    </div>
-  );
+    const element = useRoutes(routes)
+    return (
+        <div className="App">
+            {/* 注册路由 */}
+            {element}
+        </div>
+    );
 }
 
 export default App;

@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 
 import storageUtils from "./utils/storageUtils";
 import memoryUtils from "./utils/memoryUtils";
+import {BrowserRouter} from "react-router-dom";
+
 // 读取local中保存的user，并将其保存到内存中
 const user = storageUtils.getUser()
 memoryUtils.user = user
@@ -13,7 +15,9 @@ memoryUtils.user = user
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+      <BrowserRouter>
+          <App />
+      </BrowserRouter>
   </React.StrictMode>
 );
 
