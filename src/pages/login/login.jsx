@@ -5,13 +5,13 @@ import {Button, Form, Input, message} from 'antd';
 import './login.less';
 import logo from './images/logo.svg'
 import {reqLogin} from '../../api'
-import memoryUtils from "../../utils/memoryUtils";
+import memoryUtils from "../../utils/memoryUtils"
 import storageUtils from "../../utils/storageUtils";
 /**
  登录的路由组件
  */
 function Login() {
-    let navigate = useNavigate();
+    let navigate = useNavigate()
     let formRef = React.createRef()
 
     let onFinish = (values) => {

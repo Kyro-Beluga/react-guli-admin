@@ -24,3 +24,5 @@ export function reqLogin(username, password) {
 export const reqAddUser = (user) => ajax(BASE + '/manage/user/add', user, 'POST')
 
 
+
+

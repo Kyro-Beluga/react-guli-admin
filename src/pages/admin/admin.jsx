@@ -1,15 +1,6 @@
 import React, {useEffect} from 'react';
-import {useNavigate, Route, Routes, Navigate, Outlet} from 'react-router-dom'
+import {useNavigate, Outlet} from 'react-router-dom'
 import memoryUtils from "../../utils/memoryUtils";
-
-import Home from "../home/home";
-import Category from "../category/category";
-import Product from "../product/product";
-import User from "../user/user";
-import Role from "../role/role";
-import Bar from "../charts/bar"
-import Line from "../charts/line"
-import Pie from "../charts/pie"
 
 import {Layout} from 'antd';
 import LeftNav from "../../components/left-nav";
@@ -37,7 +28,7 @@ function Admin() {
             </Sider>
             <Layout>
                 <Header>Header</Header>
-                <Content style={{backgroundColor: '#fff'}}>
+                <Content style={{margin: 20, backgroundColor: '#fff'}}>
                     {/* 指定路由组件的呈现位置 */}
                     <Outlet />
                 </Content>
